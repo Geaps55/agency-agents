@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "program": "FounderOS Service Pack",
+  "default_mode": "dry-run",
+  "fail_closed": true,
+  "idempotency_required": true,
+  "product_isolation_required": true,
+  "packs": [
+    {"id":"FSP-DATA","version":"1.0.0","controls":["authoritative-source","stable-identities","relationships","migration-versioning","integrity-readback"]},
+    {"id":"FSP-AUTHZ","version":"1.0.0","controls":["ownership","tenant-household-isolation","trusted-mutations","hostile-a-b"]},
+    {"id":"FSP-STATE","version":"1.0.0","controls":["stale-state","profile-switching","loading-error-retry"]},
+    {"id":"FSP-CI","version":"1.0.0","controls":["exact-revision","lint","typecheck","test","production-build"]},
+    {"id":"FSP-PRIVACY","version":"1.0.0","controls":["data-minimization","credentials","deletion-integrity","auditability"]},
+    {"id":"FSP-UXA11Y","version":"1.0.0","controls":["responsive","keyboard-focus","contrast","reduced-motion","empty-error-states"]},
+    {"id":"FSP-RESILIENCE","version":"1.0.0","controls":["idempotency","concurrency","replay-protection","recovery-reconciliation"]},
+    {"id":"FSP-EVIDENCE","version":"1.0.0","controls":["readback","runtime-evidence","acceptance-dossier","no-stale-certification"]}
+  ],
+  "lifecycle":["discover","inventory","dry-run","compatibility-plan","checkpoint","apply","migrate","readback","adversarial-qa","ci","certify","evidence-dossier"],
+  "certification_states":["not-scanned","audit-only","needs-migration","blocked","exception","certified"]
+}
